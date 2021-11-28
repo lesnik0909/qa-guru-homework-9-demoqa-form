@@ -1,0 +1,31 @@
+plugins {
+    id "java"
+}
+
+group "guru.qa.homework"
+version "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+def junitVersion = "5.8.1",
+    selenideVersion = "5.25.0"
+
+dependencies {
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+            "com.codeborne:selenide:$selenideVersion"
+    )
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding("UTF-8")
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
