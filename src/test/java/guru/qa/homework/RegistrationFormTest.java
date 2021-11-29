@@ -23,6 +23,7 @@ public class RegistrationFormTest extends BaseTest {
 
   @Test
   public void submitFormWithValidData() {
+    //неплохо бы комментировать код
     open("https://demoqa.com/automation-practice-form");
     $x("//input[@id='firstName']").setValue(FIRST_NAME);
     $x("//input[@id='lastName']").setValue(LAST_NAME);
