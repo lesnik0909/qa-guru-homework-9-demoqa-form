@@ -23,8 +23,9 @@ public class RegistrationFormTest extends BaseTest {
 
   @Test
   public void submitFormWithValidData() {
-    //неплохо бы комментировать код
+    //открываем сайт
     open("https://demoqa.com/automation-practice-form");
+    //заполняем поля
     $x("//input[@id='firstName']").setValue(FIRST_NAME);
     $x("//input[@id='lastName']").setValue(LAST_NAME);
     $x("//input[@id='userEmail']").setValue(EMAIL);
@@ -42,7 +43,9 @@ public class RegistrationFormTest extends BaseTest {
     $x("//textarea[@id='currentAddress']").setValue(ADDRESS);
     $x("//input[@id='react-select-3-input']").setValue(STATE).pressEnter();
     $x("//input[@id='react-select-4-input']").setValue(CITY).pressEnter();
+    //жмем submit
     $x("//button[@id='submit']").scrollTo().click();
+    //проверяем текст
     checkField("Student Name", FIRST_NAME + " " + LAST_NAME);
     checkField("Student Email", EMAIL);
     checkField("Gender", GENDER);
